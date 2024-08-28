@@ -18,7 +18,8 @@ import warnings
 if sys.platform == "win32":
     si = subprocess.STARTUPINFO()
     si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-    
+else: 
+    si = None
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 COLOR_CORRECTION_VECTORS = [1.398822546, -0.09047482163, 0.1619316638, -0.01290435996, 0.8994362354, 0.1134681329, 0.007306902204, -0.05995989591, 1.577814579]#101018
@@ -126,7 +127,8 @@ def Survey3_Convert_RAW_to_Tiff(infolder, outfolder, wb):
                 
                 cv2.imwrite(outfolder + outputfilename, color)
                 file_index = count*2 -1 if first_files_rawjpg else count-1    
-                ExifUtils.copy_simple(infiles[file_index],outfolder + outputfilename,si)
+                # ExifUtils.copy_simple(infiles[file_index],outfolder + outputfilename,si)
+                ExifUtils.copy_simple(infiles[file_index],outfolder + outputfilename)
                 count+=1 
                 print()
         else:
