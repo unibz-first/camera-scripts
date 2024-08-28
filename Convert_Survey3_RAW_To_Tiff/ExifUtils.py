@@ -2,9 +2,9 @@
 """
 @author: MAPIR, Inc
 """
-
-import subprocess
-import os
+# OG version (thanks nolan!)
+# import subprocess
+# import os
 
 # class ExifUtils:
 
@@ -23,6 +23,8 @@ import os
 #                     args=[mod_path + os.sep + r'exiftool.exe', '-m', r'-ifd0:imagewidth', r'-ifd0:imageheight', os.path.abspath(inphoto)],
 #                     stdout=subprocess.PIPE, stderr=subprocess.PIPE,
 #                     stdin=subprocess.PIPE, startupinfo=startup_info).stderr.decode("utf-8")
+
+# Workaround version
 import exifread
 import piexif
 from PIL import Image
